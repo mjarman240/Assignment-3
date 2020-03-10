@@ -22,7 +22,7 @@ public class FXMainPane extends BorderPane {
 	private Label plainTextLabel, descriptionForInputLabel, encryptedLabel3, decriptedLabel4, blankLabel1, blankLabel2, blankLabel3, blankLabel4;
 	private RadioButton radioButton1, radioButton2;
 	private int shiftInt = 0;
-	FXMainPane() {
+	public FXMainPane() {
 		
 		Insets inset = new Insets(10); //for setting margins
 		
