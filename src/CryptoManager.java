@@ -106,6 +106,25 @@ public class CryptoManager {
 	 * @return the decrypted string
 	 */
 	public static String decryptBellaso(String encryptedText, String bellasoStr) {
-		throw new RuntimeException("method not implemented");
+		String decrypted = "";
+		for (int i = 0; i < encryptedText.length(); i++) {
+			int j = 0;
+			if (i < bellasoStr.length()) {
+				j = i;
+			} else {
+				j = i;
+				while (j >= bellasoStr.length()) {
+					j -= bellasoStr.length();
+				}
+			}
+			char c = encryptedText.charAt(i);
+			c += RANGE;
+			c -= bellasoStr.charAt(j);
+			while (c < (LOWER_BOUND + RANGE)) {
+				c += RANGE;
+			}
+			decrypted += (char)(c - RANGE);
+		}
+		return decrypted;
 	}
 }
