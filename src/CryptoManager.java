@@ -1,4 +1,7 @@
-
+/**
+ * Atuthor: Michael Jarman
+ * Assignment 3
+ */
 
 public class CryptoManager {
 	
@@ -34,6 +37,7 @@ public class CryptoManager {
 		for (int i = 0; i < plainText.length(); i++) {
 			char c = plainText.charAt(i);
 			c += key;
+			// Bring c in bounds
 			while (c > UPPER_BOUND) {
 				c -= RANGE;
 			}
@@ -54,6 +58,7 @@ public class CryptoManager {
 		String encrypted = "";
 		for (int i = 0; i < plainText.length(); i++) {
 			int j = 0;
+			// Make sure bellasoStr doesn't go out of bounds
 			if (i < bellasoStr.length()) {
 				j = i;
 			} else {
@@ -64,6 +69,7 @@ public class CryptoManager {
 			}
 			char c = plainText.charAt(i);
 			c += bellasoStr.charAt(j);
+			// Bring c within bounds
 			while (c > UPPER_BOUND) {
 				c -= RANGE;
 			}
@@ -85,10 +91,12 @@ public class CryptoManager {
 		for (int i = 0; i < encryptedText.length(); i++) {
 			char c = encryptedText.charAt(i);
 			c += RANGE;
+			// Bring key within bounds
 			while (key >= UPPER_BOUND) {
 				key -= RANGE;
 			}
 			c -= key;
+			// Bring c within bounds
 			while (c < (LOWER_BOUND + RANGE)) {
 				c += 64;
 			}
@@ -109,6 +117,7 @@ public class CryptoManager {
 		String decrypted = "";
 		for (int i = 0; i < encryptedText.length(); i++) {
 			int j = 0;
+			// Make sure bellasoStr doesn't go out of bounds
 			if (i < bellasoStr.length()) {
 				j = i;
 			} else {
@@ -120,6 +129,7 @@ public class CryptoManager {
 			char c = encryptedText.charAt(i);
 			c += RANGE;
 			c -= bellasoStr.charAt(j);
+			// Bring c in bounds
 			while (c < (LOWER_BOUND + RANGE)) {
 				c += RANGE;
 			}
